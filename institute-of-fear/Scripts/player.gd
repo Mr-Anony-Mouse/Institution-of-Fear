@@ -8,7 +8,7 @@ var current_health: int
 var is_attacking: bool = false
 var facing_direction: String = "Down" 
 
-@onready var weapons: Node2D = $weapons 
+@export var weapons: Node2D 
 
 func _ready() -> void:
 	current_health = max_health
@@ -19,7 +19,7 @@ func _physics_process(_delta: float) -> void:
 		
 	update_mouse_facing()
 
-	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var direction = Input.get_vector("move_up", "move_right", "move_up", "move_down")
 
 	var current_speed: float
 	if Input.is_action_pressed("sprint"):

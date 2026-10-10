@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://drqtxyku55k8a"]
+
+[ext_resource type="Texture2D" uid="uid://1334b451ra26" path="res://icon.svg" id="1_hghv2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vsnxb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hghv2")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1ewgt"]
+
+[node name="enemy" type="CharacterBody2D" unique_id=1645804692]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1759938393]
+scale = Vector2(0.10937501, 0.10937501)
+sprite_frames = SubResource("SpriteFrames_vsnxb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1404508618]
+shape = SubResource("CircleShape2D_1ewgt")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1396012164]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=393553686]
+scale = Vector2(1.9574424, 1)
+polygon = PackedVector2Array(0, 0, 19, -19, 19, 19)

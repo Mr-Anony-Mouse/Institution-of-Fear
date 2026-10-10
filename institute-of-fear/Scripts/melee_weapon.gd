@@ -9,18 +9,17 @@ var is_attacking: bool = false
 @onready var attack_collision: CollisionShape2D = $AttackArea/CollisionShape2D
 @onready var swing_sound: AudioStreamPlayer2D = $SwingSound
 @onready var hit_sound: AudioStreamPlayer2D = $HitSound
-var test
 
 
 func _ready() -> void:
 	attack_collision.set_deferred("disabled", true)
 
-#func _process(_delta: float) -> void:
+func _process(_delta: float) -> void:
 	#look_at(get_global_mouse_position())
 	#animated_sprite.flip_v = get_global_mouse_position().x < global_position.x
 		
-	#if Input.is_action_pressed("attack") and attack_timer.is_stopped():
-		#attack()
+	if Input.is_action_pressed("attack") and attack_timer.is_stopped():
+		attack()
 
 func attack() -> void:
 	is_attacking = true
