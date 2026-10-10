@@ -23,7 +23,6 @@ func _physics_process(_delta: float) -> void:
 
 	var current_speed: float
 	if Input.is_action_pressed("sprint"):
-		print("sprinting")
 		current_speed = sprint_speed
 	else:
 		current_speed = walk_speed
