@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bifnp6y1pidvt" path="res://Assets/Tilemaps/Normal/A5.png" id="1_qc4db"]
 [ext_resource type="PackedScene" uid="uid://ltchrsx48eqj" path="res://Scenes/melee_weapon.tscn" id="2_qc4db"]
 [ext_resource type="PackedScene" uid="uid://7a4xbm6cfoep" path="res://Scenes/ranged_weapon.tscn" id="4_35xla"]
+[ext_resource type="PackedScene" uid="uid://27qova3ia072" path="res://Scenes/enemy_blob_1.tscn" id="5_35xla"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8od7v"]
 texture = ExtResource("1_qc4db")
@@ -372,3 +373,6 @@ texture = SubResource("AtlasTexture_1ewgt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1136092858]
 shape = SubResource("RectangleShape2D_1ewgt")
+
+[node name="Enemy_Blob1" parent="." unique_id=118926806 instance=ExtResource("5_35xla")]
+position = Vector2(117, 79)

@@ -1,61 +1,66 @@
 [gd_scene format=3 uid="uid://27qova3ia072"]
 
-[ext_resource type="Script" uid="uid://beh4a7psinouw" path="res://Scripts/enemy_blob_1.gd" id="1_pt2hk"]
+[ext_resource type="Script" uid="uid://beh4a7psinouw" path="res://Scripts/enemy_blob_1.gd" id="1_7400l"]
+[ext_resource type="Texture2D" uid="uid://1334b451ra26" path="res://icon.svg" id="1_pt2hk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fen6n"]
-radius = 11.045361
+radius = 16.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mfboc"]
-radius = 18.027756
+radius = 27.018513
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q4cbq"]
-radius = 15.033297
+radius = 24.186773
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8x6fa"]
-radius = 80.0
+radius = 50.08992
 
-[node name="Enemy_Blob1" type="CharacterBody2D" unique_id=379783759]
-collision_layer = 5
+[node name="Enemy_Blob1" type="CharacterBody2D" unique_id=118926806]
+collision_layer = 4
 collision_mask = 3
-script = ExtResource("1_pt2hk")
+script = ExtResource("1_7400l")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1819309188]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=537347972]
+position = Vector2(-1, 0)
+scale = Vector2(0.28125, 0.265625)
+texture = ExtResource("1_pt2hk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1383190448]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1283290481]
 shape = SubResource("CircleShape2D_fen6n")
 
-[node name="HitBox" type="Area2D" parent="." unique_id=310393131]
-collision_layer = 4
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=432078354]
+
+[node name="HitBox" type="Area2D" parent="." unique_id=1866140538]
+collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1525431734]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=239743312]
 shape = SubResource("CircleShape2D_mfboc")
 
-[node name="AttackArea" type="Area2D" parent="." unique_id=375486489]
+[node name="AttackArea" type="Area2D" parent="." unique_id=1618139756]
 collision_layer = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=221946093]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=486341587]
 shape = SubResource("CircleShape2D_q4cbq")
 
-[node name="PlayerDetectionArea" type="Area2D" parent="." unique_id=1161174276]
+[node name="DetectionArea" type="Area2D" parent="." unique_id=423186932]
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionArea" unique_id=1065505177]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1957415625]
 shape = SubResource("CircleShape2D_8x6fa")
 
-[node name="PlayerDetectionRayCast" type="RayCast2D" parent="." unique_id=1666057534]
-target_position = Vector2(0, 64)
+[node name="PlayerRayCast" type="RayCast2D" parent="DetectionArea" unique_id=407275613]
 collision_mask = 3
 
-[node name="AttackTimer" type="Timer" parent="." unique_id=1416265366]
+[node name="AttackTimer" type="Timer" parent="." unique_id=2124261979]
 
-[node name="JumpTimer" type="Timer" parent="." unique_id=1798800995]
+[node name="JumpTimer" type="Timer" parent="." unique_id=1377021926]
 
-[node name="StateChangeTimer" type="Timer" parent="." unique_id=1232279737]
-
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
-[connection signal="area_entered" from="PlayerDetectionArea" to="." method="_on_player_detection_area_area_entered"]
-[connection signal="body_entered" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_entered"]
-[connection signal="body_exited" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_exited"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]
-[connection signal="timeout" from="StateChangeTimer" to="." method="_on_state_change_timer_timeout"]
