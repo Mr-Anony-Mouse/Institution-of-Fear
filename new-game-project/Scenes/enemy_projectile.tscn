@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://0mig4v0kkvqk"]
+
+[ext_resource type="Script" uid="uid://cadnbpsu4blw3" path="res://Scripts/enemy_projectile.gd" id="1_ibebl"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_gjudp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mfboc"]
+radius = 62.1289
+
+[node name="Enemy_Projectile" type="Area2D" unique_id=708872977]
+collision_mask = 0
+script = ExtResource("1_ibebl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=508355973]
+texture = ExtResource("2_gjudp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1037858212]
+shape = SubResource("CircleShape2D_mfboc")
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="." unique_id=906356005]
+
+[node name="LifeTime" type="Timer" parent="." unique_id=1492279671]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="LifeTime" to="." method="_on_life_time_timeout"]
