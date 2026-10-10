@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c7tdsm07l0w3v"]
+
+[ext_resource type="Script" uid="uid://bxsrphpgjmg6j" path="res://Scripts/projectile.gd" id="1_f8cdk"]
+[ext_resource type="AudioStream" uid="uid://bcjk8145jxwus" path="res://Assets/Sounds/Weapons/Wall_Hit_Paper.mp3" id="3_d4467"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fen6n"]
+
+[node name="Projectile" type="Area2D" unique_id=1723643773]
+collision_mask = 6
+script = ExtResource("1_f8cdk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1423157269]
+shape = SubResource("CircleShape2D_fen6n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=936236841]
+
+[node name="LifeTime" type="Timer" parent="." unique_id=638536163]
+wait_time = 0.484
+one_shot = true
+
+[node name="HitWallSound" type="AudioStreamPlayer2D" parent="." unique_id=1348658506]
+stream = ExtResource("3_d4467")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="LifeTime" to="." method="_on_life_time_timeout"]
