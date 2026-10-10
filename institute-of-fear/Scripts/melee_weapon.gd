@@ -9,6 +9,7 @@ var is_attacking: bool = false
 @onready var attack_collision: CollisionShape2D = $AttackArea/CollisionShape2D
 @onready var swing_sound: AudioStreamPlayer2D = $SwingSound
 @onready var hit_sound: AudioStreamPlayer2D = $HitSound
+@onready var equip_sound: AudioStreamPlayer2D = $EquipSound
 var test
 
 
