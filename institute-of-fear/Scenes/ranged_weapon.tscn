@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://c7tdsm07l0w3v" path="res://Scenes/projectile.tscn" id="2_eo800"]
 [ext_resource type="AudioStream" uid="uid://05bk5ytmicev" path="res://Assets/Sounds/Weapons/Rubber_Band_Sound.mp3" id="3_02n8u"]
 
-[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_wtcfe"]
-length = 17.00172
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_120al"]
+size = Vector2(15.999937, 31.999872)
 
 [node name="Ranged_Weapon" type="Area2D" unique_id=815316010]
 script = ExtResource("1_0rltn")
@@ -14,16 +14,16 @@ projectile_scene = ExtResource("2_eo800")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=224186641]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1446633461]
+position = Vector2(0, 7.1054274e-15)
 rotation = -1.5736253
-shape = SubResource("SeparationRayShape2D_wtcfe")
+shape = SubResource("RectangleShape2D_120al")
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=2082918539]
+position = Vector2(24, 0)
 
 [node name="AttackTimer" type="Timer" parent="." unique_id=457487295]
 wait_time = 1.1969999999999998
 one_shot = true
-
-[node name="EquipSound" type="AudioStreamPlayer2D" parent="." unique_id=1739194830]
 
 [node name="ShootSound" type="AudioStreamPlayer2D" parent="." unique_id=516876836]
 stream = ExtResource("3_02n8u")

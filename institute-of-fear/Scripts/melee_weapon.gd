@@ -9,13 +9,16 @@ var is_attacking: bool = false
 @onready var attack_collision: CollisionShape2D = $AttackArea/CollisionShape2D
 @onready var swing_sound: AudioStreamPlayer2D = $SwingSound
 @onready var hit_sound: AudioStreamPlayer2D = $HitSound
+@onready var equip_sound: AudioStreamPlayer2D = $EquipSound
+var test
+
 
 func _ready() -> void:
 	attack_collision.set_deferred("disabled", true)
 
 func _process(_delta: float) -> void:
 	look_at(get_global_mouse_position())
-	animated_sprite.flip_v = get_global_mouse_position().x < global_position.x
+	#animated_sprite.flip_v = get_global_mouse_position().x < global_position.x
 		
 	if Input.is_action_pressed("attack") and attack_timer.is_stopped():
 		attack()
@@ -30,7 +33,6 @@ func attack() -> void:
 	swing_sound.pitch_scale = randf_range(0.8, 1.2)
 	swing_sound.play()
 	
-	# Wait for 0.3 seconds (adjust this number to match your swing speed)
 	await get_tree().create_timer(0.3).timeout
 	
 	is_attacking = false
