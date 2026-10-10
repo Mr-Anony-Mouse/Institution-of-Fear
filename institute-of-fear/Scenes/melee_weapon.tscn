@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://b6jvk15r38hhs" path="res://Scripts/melee_weapon.gd" id="1_7i2io"]
 [ext_resource type="AudioStream" uid="uid://bjgapgjrjqvwg" path="res://Assets/Sounds/Weapons/Swing_Woosh.mp3" id="2_120al"]
-[ext_resource type="AudioStream" uid="uid://d1ij70cuhobjl" path="res://Assets/Sounds/Weapons/PullUp.mp3" id="3_120al"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yr2qt"]
 size = Vector2(48, 16)
@@ -22,20 +21,17 @@ shape = SubResource("RectangleShape2D_yr2qt")
 one_shot = true
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=771356511]
-position = Vector2(30, 0)
 collision_layer = 8
 collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1187721797]
+position = Vector2(16, 0)
 shape = SubResource("CircleShape2D_tl4hk")
 
 [node name="SwingSound" type="AudioStreamPlayer2D" parent="." unique_id=691359645]
 stream = ExtResource("2_120al")
 
 [node name="HitSound" type="AudioStreamPlayer2D" parent="." unique_id=947477772]
-
-[node name="EquipSound" type="AudioStreamPlayer2D" parent="." unique_id=782575839]
-stream = ExtResource("3_120al")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_area_entered"]

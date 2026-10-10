@@ -7,14 +7,12 @@ extends Area2D
 @onready var attack_timer: Timer = $AttackTimer
 @onready var equip_sound: AudioStreamPlayer2D = $EquipSound
 @onready var shoot_sound: AudioStreamPlayer2D = $ShootSound
-@onready var raycast: RayCast2D = $RayCast2D
 
 var direction
 var mouse_pos 
 
 func _ready() -> void:
 	animated_sprite.animation_finished.connect(_on_animation_finished)
-	equip_weapon()
 
 func _process(_delta: float) -> void:
 
@@ -22,11 +20,6 @@ func _process(_delta: float) -> void:
 	
 	if Input.is_action_pressed("attack"):
 		shoot()
-
-func equip_weapon() -> void:
-	print("weapon equipped")
-	animated_sprite.play("Equip")
-	equip_sound.play()
 
 func shoot() -> void:
 	if not attack_timer.is_stopped():
@@ -38,7 +31,7 @@ func shoot() -> void:
 	shoot_sound.pitch_scale = randf_range(0.8, 1.2)
 	shoot_sound.play()
 	
-	await get_tree().create_timer(0.8).timeout
+	await get_tree().create_timer(1.0).timeout
 	
 	if projectile_scene != null:
 		var projectile = projectile_scene.instantiate()

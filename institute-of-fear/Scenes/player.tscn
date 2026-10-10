@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://datw4j8nkdk3p" path="res://Scripts/player.gd" id="1_v0iea"]
 [ext_resource type="Texture2D" uid="uid://1334b451ra26" path="res://icon.svg" id="2_cvnsp"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_35xla"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fen6n"]
 size = Vector2(20, 74)
 
@@ -10,12 +12,12 @@ size = Vector2(20, 74)
 radius = 18.0
 height = 82.0
 
-[node name="Player" type="CharacterBody2D" unique_id=325730415 node_paths=PackedStringArray("weapons")]
+[node name="Player" type="CharacterBody2D" unique_id=325730415]
 collision_mask = 118
 script = ExtResource("1_v0iea")
-weapons = NodePath("")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1891359621]
+sprite_frames = SubResource("SpriteFrames_35xla")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=171195741]
 shape = SubResource("RectangleShape2D_fen6n")
