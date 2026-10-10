@@ -27,6 +27,7 @@ var max_inventory_size: int = 12
 
 @onready var slot_grid: GridContainer = $InventoryUI/Background/SlotGrid
 var selected_slot_index: int = -1
+var UI_inventory
 
 const POTION_SCENE = preload("res://Scenes/health_potion.tscn")
 
