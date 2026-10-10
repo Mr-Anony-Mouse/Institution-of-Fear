@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dw2wjsfthlqax"]
+
+[ext_resource type="Script" uid="uid://db5vlnglkcde8" path="res://Scripts/health_potion.gd" id="1_x2qfu"]
+[ext_resource type="Texture2D" uid="uid://bhfthky08f623" path="res://Assets/Potions - Full, Corked.png" id="2_petj4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]
+atlas = ExtResource("2_petj4")
+region = Rect2(-1, 0, 17, 27)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sctm6"]
+
+[node name="HealthPotion" type="Area2D" unique_id=70901241]
+script = ExtResource("1_x2qfu")
+item_icon = SubResource("AtlasTexture_6t5aa")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1935141158]
+position = Vector2(2, 0)
+texture = ExtResource("2_petj4")
+region_enabled = true
+region_rect = Rect2(0, 1.2651424, 16.327929, 24.077803)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=270948772]
+position = Vector2(2, 1)
+shape = SubResource("CircleShape2D_sctm6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
