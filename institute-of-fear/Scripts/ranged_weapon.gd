@@ -7,7 +7,7 @@ extends Area2D
 @onready var attack_timer: Timer = $AttackTimer
 @onready var equip_sound: AudioStreamPlayer2D = $EquipSound
 @onready var shoot_sound: AudioStreamPlayer2D = $ShootSound
-@onready var raycast: RayCast2D = $RayCast2D
+
 
 var direction
 var mouse_pos 

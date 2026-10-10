@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://1ij0s121uwoq"]
 
 [ext_resource type="Script" uid="uid://datw4j8nkdk3p" path="res://Scripts/player.gd" id="1_v0iea"]
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_cvnsp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pt2hk"]
+animations = []
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fen6n"]
 size = Vector2(20, 74)
@@ -15,6 +17,10 @@ collision_mask = 118
 script = ExtResource("1_v0iea")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1891359621]
+texture_filter = 1
+scale = Vector2(1.39972, 1.2921189)
+sprite_frames = SubResource("SpriteFrames_pt2hk")
+animation = &""
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=171195741]
 shape = SubResource("RectangleShape2D_fen6n")
@@ -26,8 +32,3 @@ collision_mask = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=917348611]
 shape = SubResource("CapsuleShape2D_mfboc")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1217192059]
-position = Vector2(10.75, 1.4999981)
-scale = Vector2(0.16015624, 0.6171875)
-texture = ExtResource("2_cvnsp")

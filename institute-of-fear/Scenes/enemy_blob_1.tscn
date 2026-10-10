@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://27qova3ia072"]
+
+[ext_resource type="Script" uid="uid://beh4a7psinouw" path="res://Scripts/enemy_blob_1.gd" id="1_pt2hk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fen6n"]
+radius = 11.045361
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mfboc"]
+radius = 18.027756
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q4cbq"]
+radius = 15.033297
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8x6fa"]
+radius = 80.0
+
+[node name="Enemy_Blob1" type="CharacterBody2D" unique_id=379783759]
+collision_layer = 5
+collision_mask = 3
+script = ExtResource("1_pt2hk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1819309188]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1383190448]
+shape = SubResource("CircleShape2D_fen6n")
+
+[node name="HitBox" type="Area2D" parent="." unique_id=310393131]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1525431734]
+shape = SubResource("CircleShape2D_mfboc")
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=375486489]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=221946093]
+shape = SubResource("CircleShape2D_q4cbq")
+
+[node name="PlayerDetectionArea" type="Area2D" parent="." unique_id=1161174276]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionArea" unique_id=1065505177]
+shape = SubResource("CircleShape2D_8x6fa")
+
+[node name="PlayerDetectionRayCast" type="RayCast2D" parent="." unique_id=1666057534]
+target_position = Vector2(0, 64)
+collision_mask = 3
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=1416265366]
+
+[node name="JumpTimer" type="Timer" parent="." unique_id=1798800995]
+
+[node name="StateChangeTimer" type="Timer" parent="." unique_id=1232279737]
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="area_entered" from="PlayerDetectionArea" to="." method="_on_player_detection_area_area_entered"]
+[connection signal="body_entered" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_entered"]
+[connection signal="body_exited" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_exited"]
+[connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]
+[connection signal="timeout" from="StateChangeTimer" to="." method="_on_state_change_timer_timeout"]
