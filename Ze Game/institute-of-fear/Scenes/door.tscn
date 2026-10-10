@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://myf2wrcqo54q"]
+
+[ext_resource type="Texture2D" uid="uid://735qnxtq5x3i" path="res://Assets/Tilemaps/Bonus/Bonus/Animated/Door1.png" id="1_w6aom"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0e35"]
+atlas = ExtResource("1_w6aom")
+region = Rect2(0, 12, 48, 87)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fahql"]
+atlas = ExtResource("1_w6aom")
+region = Rect2(0, 107, 48, 87)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ab4ky"]
+atlas = ExtResource("1_w6aom")
+region = Rect2(0, 202, 48, 87)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a43ba"]
+atlas = ExtResource("1_w6aom")
+region = Rect2(0, 297, 48, 87)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h7j2x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0e35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fahql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ab4ky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a43ba")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Door" type="Node2D" unique_id=490993680]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=213361892]
+modulate = Color(0.47843137, 0.47843137, 0.47843137, 1)
+sprite_frames = SubResource("SpriteFrames_h7j2x")
