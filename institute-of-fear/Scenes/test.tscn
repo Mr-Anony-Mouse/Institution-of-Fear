@@ -353,7 +353,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAIAAAAAAAI
 tile_set = SubResource("TileSet_n24cs")
 
 [node name="Player" parent="." unique_id=325730415 instance=ExtResource("1_8od7v")]
-position = Vector2(250, 328)
+position = Vector2(146, 329)
 weapon_scenes = Array[PackedScene]([ExtResource("2_qc4db"), ExtResource("4_35xla")])
 
 [node name="ArsenalController" type="Node2D" parent="Player" unique_id=1628300807]

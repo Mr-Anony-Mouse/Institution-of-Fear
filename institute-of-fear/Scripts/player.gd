@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @export var walk_speed: float = 150.0
 @export var sprint_speed: float = 250.0
 @export var max_health: int = 100
@@ -11,6 +12,8 @@ extends CharacterBody2D
 var current_health: int
 var is_attacking: bool = false
 var facing_direction: String = "Down"
+
+var direction: String
 
 var current_weapon_index: int = 0
 var weapon: Area2D = null
@@ -54,16 +57,51 @@ func _switch_weapon(direction: int) -> void:
 # Physics / movement
 # ------------------------------------------------------------------
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	update_mouse_facing()
 
 	if is_attacking:
 		return
 
-	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	var current_speed: float = sprint_speed if Input.is_action_pressed("sprint") else walk_speed
+	#var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var speed: float = sprint_speed if Input.is_action_pressed("sprint") else walk_speed
+	animated_sprite_2d.speed_scale == 999 * delta if Input.is_action_pressed("sprint") else 1.0 * delta
 
-	velocity = direction * current_speed
+	#velocity = direction * speed
+	
+	
+	if Input.is_action_pressed("move_up"):
+		direction = "up"
+		velocity.x = 0
+		velocity.y = -speed
+		animated_sprite_2d.play("up")
+	elif Input.is_action_pressed("move_down"):
+		direction = "down"
+		velocity.x = 0
+		velocity.y = speed
+		animated_sprite_2d.play("down")
+	elif Input.is_action_pressed("move_left"):
+		direction = "left"
+		velocity.x = -speed
+		velocity.y = 0
+		animated_sprite_2d.play("left")
+	elif Input.is_action_pressed("move_right"):
+		direction = "right"
+		velocity.x = speed
+		velocity.y = 0
+		animated_sprite_2d.play("right")
+	else:
+		velocity.x = 0
+		velocity.y = 0
+		if direction == "up":
+			animated_sprite_2d.play("idle_up")
+		elif direction == "down":
+			animated_sprite_2d.play("idle_down")
+		elif direction == "left":
+			animated_sprite_2d.play("idle_left")
+		elif direction == "right":
+			animated_sprite_2d.play("idle_right")
+	
 	move_and_slide()
 
 func update_mouse_facing() -> void:

@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://drqtxyku55k8a"]
 
+[ext_resource type="Script" uid="uid://c6ni41wv1d2qc" path="res://Scripts/enemy.gd" id="1_1f0kj"]
 [ext_resource type="Texture2D" uid="uid://1334b451ra26" path="res://icon.svg" id="1_hghv2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vsnxb"]
@@ -16,6 +17,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_1ewgt"]
 
 [node name="enemy" type="CharacterBody2D" unique_id=1645804692]
+scale = Vector2(3, 3)
+script = ExtResource("1_1f0kj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1759938393]
 scale = Vector2(0.10937501, 0.10937501)
