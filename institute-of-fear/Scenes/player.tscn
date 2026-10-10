@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://1ij0s121uwoq"]
+
+[ext_resource type="Script" uid="uid://datw4j8nkdk3p" path="res://Scripts/player.gd" id="1_v0iea"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_cvnsp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fen6n"]
+size = Vector2(20, 74)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mfboc"]
+radius = 18.0
+height = 82.0
+
+[node name="Player" type="CharacterBody2D" unique_id=325730415]
+collision_mask = 118
+script = ExtResource("1_v0iea")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1891359621]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=171195741]
+shape = SubResource("RectangleShape2D_fen6n")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2050710677]
+
+[node name="HitBox" type="Area2D" parent="." unique_id=873142601]
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=917348611]
+shape = SubResource("CapsuleShape2D_mfboc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1217192059]
+position = Vector2(10.75, 1.4999981)
+scale = Vector2(0.16015624, 0.6171875)
+texture = ExtResource("2_cvnsp")

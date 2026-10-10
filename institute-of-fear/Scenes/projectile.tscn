@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://c7tdsm07l0w3v"]
 
 [ext_resource type="Script" uid="uid://bxsrphpgjmg6j" path="res://Scripts/projectile.gd" id="1_f8cdk"]
-[ext_resource type="AudioStream" uid="uid://bcjk8145jxwus" path="res://Assets/Sounds/Weapons/Wall_Hit_Paper.mp3" id="3_d4467"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fen6n"]
+
+[sub_resource type="AudioStream" id="AudioStream_ykrsh"]
 
 [node name="Projectile" type="Area2D" unique_id=1723643773]
 collision_mask = 6
@@ -19,7 +20,7 @@ wait_time = 0.484
 one_shot = true
 
 [node name="HitWallSound" type="AudioStreamPlayer2D" parent="." unique_id=1348658506]
-stream = ExtResource("3_d4467")
+stream = SubResource("AudioStream_ykrsh")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
