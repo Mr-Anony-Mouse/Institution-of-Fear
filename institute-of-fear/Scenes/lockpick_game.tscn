@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://dkyjnneftk1wb"]
+
+[ext_resource type="Script" uid="uid://q25o1iic6ut4" path="res://Scripts/lockpick_game.gd" id="1_3qgqp"]
+
+[node name="LockpickGame" type="Control" unique_id=1134974155]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3qgqp")
+
+[node name="Panel" type="Panel" parent="." unique_id=1663511436]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -150.0
+offset_right = 300.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Panel" unique_id=2059163951]
+layout_mode = 0
+offset_left = 244.0
+offset_top = 10.0
+offset_right = 360.0
+offset_bottom = 50.0
+text = "Picking Lock..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bar" type="ColorRect" parent="Panel" unique_id=1201302069]
+layout_mode = 0
+offset_left = 4.03
+offset_top = 122.0
+offset_right = 596.03
+offset_bottom = 170.0
+color = Color(0.3372549, 0.3372549, 0.3372549, 1)
+
+[node name="Marker" type="ColorRect" parent="Panel/Bar" unique_id=1928638982]
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 48.0
+color = Color(1, 0, 0, 1)
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel" unique_id=1237418967]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 250.0
+offset_right = 596.0
+offset_bottom = 284.0
+rounded = true
+show_percentage = false
+
+[node name="AttemptsLabel" type="Label" parent="Panel" unique_id=6494109]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 50.0
+offset_right = 300.0
+offset_bottom = 106.0
+
+[node name="MessageLabel" type="Label" parent="Panel" unique_id=853091909]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 50.0
+offset_right = 428.0
+offset_bottom = 106.0
+
+[node name="PickButton" type="Button" parent="Panel" unique_id=231741093]
+layout_mode = 0
+offset_left = 252.0
+offset_top = 186.0
+offset_right = 348.0
+offset_bottom = 242.0
+text = "Pick!"
+
+[node name="RetryButton" type="Button" parent="Panel" unique_id=124356982]
+layout_mode = 0
+offset_left = 492.0
+offset_top = 10.0
+offset_right = 588.0
+offset_bottom = 42.0
+text = "Try Again 
+"
+
+[node name="CloseButton" type="Button" parent="Panel" unique_id=1653873652]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 108.0
+offset_bottom = 41.0

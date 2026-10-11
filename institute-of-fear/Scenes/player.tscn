@@ -188,11 +188,11 @@ radius = 18.0
 height = 82.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p1odr"]
-content_margin_left = 20.0
-content_margin_top = 20.0
-content_margin_right = 20.0
-content_margin_bottom = 20.0
-bg_color = Color(0.56078434, 0.27058825, 0.15686275, 0.9254902)
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.56078434, 0.27058825, 0.15686275, 0.68235296)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_olqyp"]
 atlas = ExtResource("3_6t5aa")
@@ -200,6 +200,9 @@ region = Rect2(0, 77, 25, 27)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cvnsp"]
 texture = SubResource("AtlasTexture_olqyp")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fen6n"]
+bg_color = Color(0.047557652, 0.047557652, 0.047557607, 1)
 
 [node name="Player" type="CharacterBody2D" unique_id=325730415]
 process_mode = 3
@@ -235,8 +238,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -163.0
 offset_top = -126.0
-offset_right = 163.0
-offset_bottom = 126.0
+offset_right = 143.0
+offset_bottom = 106.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -274,14 +277,23 @@ grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Panel2" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=1432448754]
+[node name="AmountLabel" type="Label" parent="InventoryUI/Background/SlotGrid/Panel" unique_id=372988455]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 31.0
+offset_right = 51.0
+offset_bottom = 54.0
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Panel3" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=96529221]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxTexture_cvnsp")
 
-[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel2" unique_id=1269140895]
+[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel3" unique_id=1458871669]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 anchors_preset = 8
@@ -298,14 +310,32 @@ grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Panel3" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=942586547]
+[node name="AmountLabel" type="Label" parent="InventoryUI/Background/SlotGrid/Panel3" unique_id=758922547]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 31.0
+offset_right = 51.0
+offset_bottom = 54.0
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Panel4" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=260012319]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxTexture_cvnsp")
 
-[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel3" unique_id=1264682166]
+[node name="AmountLabel" type="Label" parent="InventoryUI/Background/SlotGrid/Panel4" unique_id=644316969]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 31.0
+offset_right = 51.0
+offset_bottom = 54.0
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel4" unique_id=1087639895]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 anchors_preset = 8
@@ -322,14 +352,14 @@ grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Panel4" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=1720389914]
+[node name="Panel5" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=1492018603]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxTexture_cvnsp")
 
-[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel4" unique_id=1567627222]
+[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel5" unique_id=1109546642]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 anchors_preset = 8
@@ -346,14 +376,23 @@ grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Panel5" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=1312858874]
+[node name="AmountLabel" type="Label" parent="InventoryUI/Background/SlotGrid/Panel5" unique_id=352007474]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 31.0
+offset_right = 51.0
+offset_bottom = 54.0
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Panel6" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=874366296]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxTexture_cvnsp")
 
-[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel5" unique_id=1648401577]
+[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel6" unique_id=1247089842]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 anchors_preset = 8
@@ -370,14 +409,23 @@ grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Panel6" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=894110989]
+[node name="AmountLabel" type="Label" parent="InventoryUI/Background/SlotGrid/Panel6" unique_id=1817643089]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 31.0
+offset_right = 51.0
+offset_bottom = 54.0
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Panel7" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=574080187]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxTexture_cvnsp")
 
-[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel6" unique_id=873201730]
+[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel7" unique_id=1470654292]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 anchors_preset = 8
@@ -393,16 +441,24 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
-metadata/_edit_use_anchors_ = true
 
-[node name="Panel7" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=630068182]
+[node name="AmountLabel" type="Label" parent="InventoryUI/Background/SlotGrid/Panel7" unique_id=994563900]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 31.0
+offset_right = 51.0
+offset_bottom = 54.0
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Panel8" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=966845057]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxTexture_cvnsp")
 
-[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel7" unique_id=563815873]
+[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel8" unique_id=1427918417]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 anchors_preset = 8
@@ -418,16 +474,24 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
-metadata/_edit_use_anchors_ = true
 
-[node name="Panel8" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=1426473138]
+[node name="AmountLabel" type="Label" parent="InventoryUI/Background/SlotGrid/Panel8" unique_id=85165522]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 31.0
+offset_right = 51.0
+offset_bottom = 54.0
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Panel9" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=2110861859]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxTexture_cvnsp")
 
-[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel8" unique_id=424240214]
+[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel9" unique_id=1455325150]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 anchors_preset = 8
@@ -443,40 +507,24 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
-metadata/_edit_use_anchors_ = true
 
-[node name="Panel9" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=1717907943]
+[node name="AmountLabel" type="Label" parent="InventoryUI/Background/SlotGrid/Panel9" unique_id=794082106]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 31.0
+offset_right = 51.0
+offset_bottom = 54.0
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Panel10" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=269471033]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxTexture_cvnsp")
 
-[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel9" unique_id=48428866]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Panel10" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=737151815]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxTexture_cvnsp")
-
-[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel10" unique_id=338004221]
+[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel10" unique_id=800518270]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 anchors_preset = 8
@@ -492,16 +540,24 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
-metadata/_edit_use_anchors_ = true
 
-[node name="Panel11" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=172871540]
+[node name="AmountLabel" type="Label" parent="InventoryUI/Background/SlotGrid/Panel10" unique_id=191194925]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 31.0
+offset_right = 51.0
+offset_bottom = 54.0
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Panel11" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=1299096922]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxTexture_cvnsp")
 
-[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel11" unique_id=2104450209]
+[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel11" unique_id=501452824]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 anchors_preset = 8
@@ -517,16 +573,24 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
-metadata/_edit_use_anchors_ = true
 
-[node name="Panel12" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=341382303]
+[node name="AmountLabel" type="Label" parent="InventoryUI/Background/SlotGrid/Panel11" unique_id=762287562]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 31.0
+offset_right = 51.0
+offset_bottom = 54.0
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Panel12" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=1084888665]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxTexture_cvnsp")
 
-[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel12" unique_id=632669550]
+[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel12" unique_id=70062020]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 anchors_preset = 8
@@ -542,4 +606,50 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 stretch_mode = 5
-metadata/_edit_use_anchors_ = true
+
+[node name="AmountLabel" type="Label" parent="InventoryUI/Background/SlotGrid/Panel12" unique_id=856098492]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 31.0
+offset_right = 51.0
+offset_bottom = 54.0
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Panel2" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=1366052737]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_cvnsp")
+
+[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel2" unique_id=1550982103]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AmountLabel" type="Label" parent="InventoryUI/Background/SlotGrid/Panel2" unique_id=443799945]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 31.0
+offset_right = 51.0
+offset_bottom = 54.0
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="ActionMenu" type="PopupMenu" parent="InventoryUI" unique_id=1767427866]
+oversampling_override = 1.0
+visible = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_fen6n")

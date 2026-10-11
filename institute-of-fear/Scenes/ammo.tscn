@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dmj145po3q1iu"]
+
+[ext_resource type="Script" uid="uid://dj0ydpifj1yof" path="res://Scripts/ammo.gd" id="1_pncbt"]
+[ext_resource type="Texture2D" uid="uid://dnlvtwgibr7yr" path="res://Assets/ammo.png" id="3_vs3aj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fen6n"]
+radius = 15.0
+
+[node name="Ammo" type="Area2D" unique_id=1757065857]
+script = ExtResource("1_pncbt")
+item_icon = ExtResource("3_vs3aj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2011893126]
+shape = SubResource("CircleShape2D_fen6n")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1824148296]
+position = Vector2(-0.12499738, 0.50000167)
+scale = Vector2(0.05517577, 0.04492188)
+texture = ExtResource("3_vs3aj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

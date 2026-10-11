@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://7a4xbm6cfoep" path="res://Scenes/ranged_weapon.tscn" id="4_35xla"]
 [ext_resource type="PackedScene" uid="uid://27qova3ia072" path="res://Scenes/enemy_blob_1.tscn" id="5_35xla"]
 [ext_resource type="PackedScene" uid="uid://dw2wjsfthlqax" path="res://Scenes/health_potion.tscn" id="6_i3aeo"]
+[ext_resource type="PackedScene" uid="uid://myf2wrcqo54q" path="res://Scenes/door.tscn" id="7_5wyu1"]
+[ext_resource type="PackedScene" uid="uid://clgr275oddss2" path="res://Scenes/lock_pick.tscn" id="8_0c07c"]
+[ext_resource type="PackedScene" uid="uid://dmj145po3q1iu" path="res://Scenes/ammo.tscn" id="9_2cgwh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8od7v"]
 texture = ExtResource("1_qc4db")
@@ -378,11 +381,50 @@ shape = SubResource("RectangleShape2D_1ewgt")
 [node name="Enemy_Blob1" parent="." unique_id=118926806 instance=ExtResource("5_35xla")]
 position = Vector2(117, 79)
 
-[node name="HealthPotion" parent="." unique_id=70901241 instance=ExtResource("6_i3aeo")]
-position = Vector2(240, 215)
+[node name="Door" parent="." unique_id=490993680 instance=ExtResource("7_5wyu1")]
+position = Vector2(464.09708, 162.71188)
 
-[node name="HealthPotion2" parent="." unique_id=1890457358 instance=ExtResource("6_i3aeo")]
+[node name="HealthPosition" type="Node" parent="." unique_id=442200506]
+
+[node name="HealthPotion" parent="HealthPosition" unique_id=70901241 instance=ExtResource("6_i3aeo")]
+position = Vector2(228, 227)
+
+[node name="HealthPotion4" parent="HealthPosition" unique_id=921882855 instance=ExtResource("6_i3aeo")]
+position = Vector2(134, 215)
+
+[node name="HealthPotion5" parent="HealthPosition" unique_id=1200508862 instance=ExtResource("6_i3aeo")]
+position = Vector2(540, 206)
+
+[node name="HealthPotion6" parent="HealthPosition" unique_id=819560877 instance=ExtResource("6_i3aeo")]
+position = Vector2(387, 119)
+
+[node name="HealthPotion2" parent="HealthPosition" unique_id=1890457358 instance=ExtResource("6_i3aeo")]
 position = Vector2(299, 362)
 
-[node name="HealthPotion3" parent="." unique_id=2104967604 instance=ExtResource("6_i3aeo")]
+[node name="HealthPotion3" parent="HealthPosition" unique_id=2104967604 instance=ExtResource("6_i3aeo")]
 position = Vector2(385, 262)
+
+[node name="Node2" type="Node" parent="." unique_id=2041029845]
+
+[node name="LockPick" parent="Node2" unique_id=480684706 instance=ExtResource("8_0c07c")]
+position = Vector2(309, 163)
+
+[node name="LockPick2" parent="Node2" unique_id=1940481239 instance=ExtResource("8_0c07c")]
+position = Vector2(293, 293)
+
+[node name="LockPick3" parent="Node2" unique_id=132386081 instance=ExtResource("8_0c07c")]
+position = Vector2(477, 297)
+
+[node name="Ammo" type="Node" parent="." unique_id=355543802]
+
+[node name="Ammo" parent="Ammo" unique_id=1757065857 instance=ExtResource("9_2cgwh")]
+position = Vector2(206, 463)
+
+[node name="Ammo2" parent="Ammo" unique_id=835170212 instance=ExtResource("9_2cgwh")]
+position = Vector2(76, 391)
+
+[node name="Ammo3" parent="Ammo" unique_id=484583268 instance=ExtResource("9_2cgwh")]
+position = Vector2(281, 463)
+
+[node name="Ammo4" parent="Ammo" unique_id=978078243 instance=ExtResource("9_2cgwh")]
+position = Vector2(117, 452)

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://clgr275oddss2"]
+
+[ext_resource type="Texture2D" uid="uid://iumhgwn3w5r4" path="res://Assets/bobby-pin.png" id="1_52emb"]
+[ext_resource type="Script" uid="uid://cpw7fxj1b85lc" path="res://Scripts/lock_pick.gd" id="1_s0jpg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fen6n"]
+radius = 16.0
+
+[node name="LockPick" type="Area2D" unique_id=480684706]
+script = ExtResource("1_s0jpg")
+item_icon = ExtResource("1_52emb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1235034825]
+position = Vector2(0, -16)
+scale = Vector2(0.046875, 0.046874996)
+texture = ExtResource("1_52emb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1447068779]
+position = Vector2(0, -16)
+shape = SubResource("CircleShape2D_fen6n")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

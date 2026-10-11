@@ -3,13 +3,16 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @export var walk_speed: float = 150.0
 @export var sprint_speed: float = 250.0
+
 @export var max_health: int = 100
+var current_health: int
+@export var potion_heal_amount: int = 25 
 
 # Drag your weapon .tscn files here in the inspector
 @export var weapon_scenes: Array[PackedScene] = []
 @onready var arsenal_controller: Node2D = $ArsenalController
 
-var current_health: int
+
 var is_attacking: bool = false
 var facing_direction: String = "Down"
 
@@ -26,22 +29,27 @@ var max_inventory_size: int = 12
 @onready var arsenal: Node2D = $ArsenalController/Arsenal
 
 @onready var slot_grid: GridContainer = $InventoryUI/Background/SlotGrid
+@onready var action_menu: PopupMenu = $InventoryUI/ActionMenu
+
 var selected_slot_index: int = -1
-var UI_inventory
+var context_slot_index: int = -1
 
 const POTION_SCENE = preload("res://Scenes/health_potion.tscn")
+const LOCKPICK_SCENE = preload("res://Scenes/lock_pick.tscn")
+const AMMO_SCENE = preload("res://Scenes/ammo.tscn")
 
 func _ready() -> void:
 	current_health = max_health
 	if weapon_scenes.size() > 0:
 		_equip_weapon(0)
-		
+		print ("1")
 		# Force the array to always have 12 empty slots
 	inventory.resize(12)
 	inventory.fill(null)
 	for i in range(slot_grid.get_child_count()):
 		var slot = slot_grid.get_child(i)
 		slot.gui_input.connect(_on_slot_clicked.bind(i))
+	action_menu.id_pressed.connect(_on_action_menu_id_pressed)
 		
 # ------------------------------------------------------------------
 # Weapon management
@@ -149,6 +157,8 @@ func _input(event: InputEvent) -> void:
 # ------------------------------------------------------------------
 
 func attack() -> void:
+	
+	
 	is_attacking = true
 	velocity = Vector2.ZERO
 
@@ -169,11 +179,23 @@ func take_damage(amount: int) -> void:
 		print("Player Died")
 		queue_free()
 		
-func add_item(item_texture: Texture2D) -> void:
-
+		
+		#____________
+		#inventory
+		#------------
+		
+func add_item(item_texture: Texture2D, amount: int = 1, is_stackable: bool = false) -> void:
+	if is_stackable:
+		for i in range(inventory.size()):
+			if inventory[i] != null and inventory[i]["texture"] == item_texture:
+				inventory[i]["amount"] += amount
+				print("Stacked! Amount is now: ", inventory[i]["amount"])
+				update_inventory_ui()
+				return
+				
 	for i in range(inventory.size()):
 		if inventory[i] == null:
-			inventory[i] = item_texture
+			inventory[i] = {"texture": item_texture, "amount": amount, "stackable": is_stackable}
 			print("Item picked up!")
 			update_inventory_ui()
 			return
@@ -184,14 +206,28 @@ func update_inventory_ui() -> void:
 	for i in range(slot_grid.get_child_count()):
 		var slot = slot_grid.get_child(i)
 		
-		if slot.get_child_count() > 0:
-			var icon = slot.get_child(0) 
-			icon.texture = inventory[i]
+		var icon = slot.get_node_or_null("Icon") 
+		var label = slot.get_node_or_null("AmountLabel") 
+		
+		if inventory[i] != null:
+			if icon != null:
+				icon.texture = inventory[i]["texture"]
 			
-			if i == selected_slot_index:
-				slot.modulate = Color(0.5, 0.5, 0.5)
-			else:
-				slot.modulate = Color(1, 1, 1)
+			if label != null:
+				if inventory[i]["amount"] > 1:
+					label.text = str(inventory[i]["amount"])
+				else:
+					label.text = ""
+		else:
+			if icon != null:
+				icon.texture = null
+			if label != null:
+				label.text = ""
+				
+		if i == selected_slot_index:
+			slot.modulate = Color(0.5, 0.5, 0.5)
+		else:
+			slot.modulate = Color(1, 1, 1)
 
 func _on_slot_clicked(event: InputEvent, slot_index: int) -> void:
 	if event is InputEventMouseButton and event.pressed:
@@ -210,19 +246,83 @@ func _on_slot_clicked(event: InputEvent, slot_index: int) -> void:
 				update_inventory_ui()
 				
 		elif event.button_index == MOUSE_BUTTON_RIGHT:
-			drop_item(slot_index)
-			if selected_slot_index == slot_index:
-				selected_slot_index = -1
-				update_inventory_ui()
-
+			if inventory[slot_index] != null:
+				context_slot_index = slot_index
+				action_menu.clear()
+				
+				var tex = inventory[slot_index]["texture"]
+				var item_path = tex.resource_path.to_lower()
+				
+				if "potion" in item_path or "health" in item_path:
+					action_menu.add_item("Drink", 0) 
+					
+				action_menu.add_item("Drop", 1)  
+				
+				if action_menu.item_count > 0:
+					action_menu.position = Vector2i(get_viewport().get_mouse_position())
+					action_menu.popup()
+				
+				
 func drop_item(index: int) -> void:
 	if inventory[index] != null:
-		var item_texture = inventory[index]
+		var item_texture = inventory[index]["texture"]
+		var item_amount = inventory[index]["amount"]
+		var item_path = item_texture.resource_path.to_lower()
 		
 		inventory[index] = null
 		update_inventory_ui()
 		
-		var dropped_item = POTION_SCENE.instantiate()
+		var dropped_item
+		
+		if "ammo" in item_path: 
+			dropped_item = AMMO_SCENE.instantiate()
+			if "amount_to_give" in dropped_item:
+				dropped_item.amount_to_give = item_amount
+		else:
+			dropped_item = POTION_SCENE.instantiate()
+			
 		dropped_item.item_icon = item_texture
+		
+		get_parent().add_child(dropped_item)
 		dropped_item.global_position = global_position + Vector2(0, 40)
-		get_tree().current_scene.add_child(dropped_item)
+		
+		if dropped_item.has_node("Sprite2D"):
+			var drop_sprite = dropped_item.get_node("Sprite2D")
+			drop_sprite.texture = item_texture
+			
+			if item_texture is AtlasTexture:
+				drop_sprite.region_enabled = true
+				drop_sprite.region_rect = item_texture.region
+
+func _on_action_menu_id_pressed(id: int) -> void:
+	if context_slot_index == -1 or inventory[context_slot_index] == null:
+		return
+		
+	if id == 0:
+		drink_potion(context_slot_index)
+	elif id == 1:
+		drop_item(context_slot_index)
+		
+	context_slot_index = -1
+	update_inventory_ui()
+
+func drink_potion(index: int) -> void:
+	current_health += potion_heal_amount
+	if current_health > max_health:
+		current_health = max_health
+		
+	print("Drank potion! Health is now: ", current_health)
+	
+	inventory[index] = null
+	update_inventory_ui()
+	
+func check_ammo_count() -> int:
+	var total = 0
+	for item in inventory:
+		if item != null:
+			var item_path = item["texture"].resource_path.to_lower()
+			var manual_name = item["texture"].resource_name.to_lower()
+			if "ammo" in item_path or "ammo" in manual_name:
+				total += item["amount"]
+	return total
+	

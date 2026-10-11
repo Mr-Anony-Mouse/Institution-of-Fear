@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://dw2wjsfthlqax"]
 
 [ext_resource type="Script" uid="uid://db5vlnglkcde8" path="res://Scripts/health_potion.gd" id="1_x2qfu"]
-[ext_resource type="Texture2D" uid="uid://bhfthky08f623" path="res://Assets/Potions - Full, Corked.png" id="2_petj4"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_00e4y"]
+load_path = "res://.godot/imported/Potions - Full, Corked.png-fe68580b02abe29c29e97bd64f454d53.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]
-atlas = ExtResource("2_petj4")
+atlas = SubResource("CompressedTexture2D_00e4y")
 region = Rect2(-1, 0, 17, 27)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sctm6"]
@@ -15,7 +17,7 @@ item_icon = SubResource("AtlasTexture_6t5aa")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1935141158]
 position = Vector2(2, 0)
-texture = ExtResource("2_petj4")
+texture = SubResource("CompressedTexture2D_00e4y")
 region_enabled = true
 region_rect = Rect2(0, 1.2651424, 16.327929, 24.077803)
 
