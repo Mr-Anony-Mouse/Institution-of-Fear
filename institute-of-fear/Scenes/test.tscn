@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ltchrsx48eqj" path="res://Scenes/melee_weapon.tscn" id="2_qc4db"]
 [ext_resource type="PackedScene" uid="uid://7a4xbm6cfoep" path="res://Scenes/ranged_weapon.tscn" id="4_35xla"]
 [ext_resource type="PackedScene" uid="uid://27qova3ia072" path="res://Scenes/enemy_blob_1.tscn" id="5_35xla"]
+[ext_resource type="PackedScene" uid="uid://dw2wjsfthlqax" path="res://Scenes/health_potion.tscn" id="6_i3aeo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8od7v"]
 texture = ExtResource("1_qc4db")
@@ -376,3 +377,12 @@ shape = SubResource("RectangleShape2D_1ewgt")
 
 [node name="Enemy_Blob1" parent="." unique_id=118926806 instance=ExtResource("5_35xla")]
 position = Vector2(117, 79)
+
+[node name="HealthPotion" parent="." unique_id=70901241 instance=ExtResource("6_i3aeo")]
+position = Vector2(240, 215)
+
+[node name="HealthPotion2" parent="." unique_id=1890457358 instance=ExtResource("6_i3aeo")]
+position = Vector2(299, 362)
+
+[node name="HealthPotion3" parent="." unique_id=2104967604 instance=ExtResource("6_i3aeo")]
+position = Vector2(385, 262)
