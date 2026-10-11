@@ -199,6 +199,7 @@ animation = &"idle_left"
 shape = SubResource("CapsuleShape2D_6t5aa")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2050710677]
+zoom = Vector2(2, 2)
 
 [node name="HitBox" type="Area2D" parent="." unique_id=873142601]
 collision_mask = 12
