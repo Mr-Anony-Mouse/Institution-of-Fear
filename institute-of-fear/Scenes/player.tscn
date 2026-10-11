@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://datw4j8nkdk3p" path="res://Scripts/player.gd" id="1_v0iea"]
 [ext_resource type="Texture2D" uid="uid://vmi408yov6x" path="res://Assets/player.png" id="2_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://bx2llirhxaq" path="res://Assets/Sample-InventorySlotsSet.png" id="3_6t5aa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fkybt"]
 atlas = ExtResource("2_6t5aa")
@@ -186,7 +187,22 @@ height = 50.0
 radius = 18.0
 height = 82.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p1odr"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.56078434, 0.27058825, 0.15686275, 0.9254902)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olqyp"]
+atlas = ExtResource("3_6t5aa")
+region = Rect2(0, 77, 25, 27)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cvnsp"]
+texture = SubResource("AtlasTexture_olqyp")
+
 [node name="Player" type="CharacterBody2D" unique_id=325730415]
+process_mode = 3
 collision_mask = 118
 script = ExtResource("1_v0iea")
 
@@ -199,9 +215,332 @@ animation = &"idle_left"
 shape = SubResource("CapsuleShape2D_6t5aa")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2050710677]
+zoom = Vector2(2, 2)
 
 [node name="HitBox" type="Area2D" parent="." unique_id=873142601]
 collision_mask = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=917348611]
 shape = SubResource("CapsuleShape2D_mfboc")
+
+[node name="InventoryUI" type="CanvasLayer" parent="." unique_id=1280651049]
+process_mode = 3
+visible = false
+
+[node name="Background" type="PanelContainer" parent="InventoryUI" unique_id=510493712]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -163.0
+offset_top = -126.0
+offset_right = 163.0
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_p1odr")
+
+[node name="SlotGrid" type="GridContainer" parent="InventoryUI/Background" unique_id=1175508290]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 4
+
+[node name="Panel" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=964841898]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_cvnsp")
+
+[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel" unique_id=1424352847]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Panel2" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=1432448754]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_cvnsp")
+
+[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel2" unique_id=1269140895]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Panel3" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=942586547]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_cvnsp")
+
+[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel3" unique_id=1264682166]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Panel4" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=1720389914]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_cvnsp")
+
+[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel4" unique_id=1567627222]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Panel5" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=1312858874]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_cvnsp")
+
+[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel5" unique_id=1648401577]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Panel6" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=894110989]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_cvnsp")
+
+[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel6" unique_id=873201730]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel7" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=630068182]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_cvnsp")
+
+[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel7" unique_id=563815873]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel8" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=1426473138]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_cvnsp")
+
+[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel8" unique_id=424240214]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel9" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=1717907943]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_cvnsp")
+
+[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel9" unique_id=48428866]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel10" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=737151815]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_cvnsp")
+
+[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel10" unique_id=338004221]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel11" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=172871540]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_cvnsp")
+
+[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel11" unique_id=2104450209]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel12" type="Panel" parent="InventoryUI/Background/SlotGrid" unique_id=341382303]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_cvnsp")
+
+[node name="Icon" type="TextureRect" parent="InventoryUI/Background/SlotGrid/Panel12" unique_id=632669550]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true

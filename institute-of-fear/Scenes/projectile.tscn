@@ -7,6 +7,7 @@
 [sub_resource type="AudioStream" id="AudioStream_ykrsh"]
 
 [node name="Projectile" type="Area2D" unique_id=1723643773]
+collision_layer = 8
 collision_mask = 6
 script = ExtResource("1_f8cdk")
 
