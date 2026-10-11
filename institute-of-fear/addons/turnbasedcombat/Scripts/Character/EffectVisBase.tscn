@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cnafywyclmqmb"]
+
+[ext_resource type="Script" uid="uid://du22l7lt5504b" path="res://addons/turnbasedcombat/Scripts/Character/EffectVisBase.gd" id="1_ipatd"]
+
+[node name="EffectVisInstanceBase" type="Sprite2D" unique_id=644811782]
+script = ExtResource("1_ipatd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1398048001]

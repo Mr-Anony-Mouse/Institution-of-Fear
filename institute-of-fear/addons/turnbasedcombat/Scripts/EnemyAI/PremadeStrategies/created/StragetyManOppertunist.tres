@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="JRPGOpportunistStrategy" format=3 uid="uid://dvrw0p5pl53b4"]
+
+[ext_resource type="Script" uid="uid://bcmfm8tlcujm7" path="res://addons/turnbasedcombat/Scripts/EnemyAI/PremadeStrategies/OppertunistStrategy.gd" id="1_pprbx"]
+
+[resource]
+script = ExtResource("1_pprbx")
+metadata/_custom_type_script = "uid://bcmfm8tlcujm7"

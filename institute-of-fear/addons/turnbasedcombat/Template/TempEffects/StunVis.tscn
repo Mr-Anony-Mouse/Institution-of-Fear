@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://crepeiyubpibb"]
+
+[ext_resource type="Texture2D" uid="uid://c12xcjg1pbjxh" path="res://addons/turnbasedcombat/assets/StunAnim2.png" id="1_crwjh"]
+[ext_resource type="Script" uid="uid://du22l7lt5504b" path="res://addons/turnbasedcombat/Scripts/Character/EffectVisBase.gd" id="2_nfhyi"]
+
+[sub_resource type="Animation" id="Animation_sekww"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_bsvwf"]
+resource_name = "Visualize"
+length = 0.9
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3p15n"]
+_data = {
+&"RESET": SubResource("Animation_sekww"),
+&"Visualize": SubResource("Animation_bsvwf")
+}
+
+[node name="StunVis" type="Sprite2D" unique_id=898269845]
+texture = ExtResource("1_crwjh")
+hframes = 6
+script = ExtResource("2_nfhyi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=375917254]
+libraries/ = SubResource("AnimationLibrary_3p15n")

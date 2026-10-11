@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="JRPGSpecies" format=3 uid="uid://cce24d8btdiyd"]
+
+[ext_resource type="Script" uid="uid://b5pok347oiq0u" path="res://addons/turnbasedcombat/Scripts/Character/BaseSkill.gd" id="1_6hmra"]
+[ext_resource type="Resource" uid="uid://cnuck7eyarjxh" path="res://addons/turnbasedcombat/Template/TempSkills/Punch.tres" id="2_ktdn4"]
+[ext_resource type="Script" uid="uid://djm7gt0pdnt6m" path="res://addons/turnbasedcombat/Scripts/Character/Species.gd" id="2_sddg3"]
+
+[resource]
+script = ExtResource("2_sddg3")
+Name = "Man"
+Max_Base_HP = 100
+Max_Base_Magi = 100
+HP_Growth = 10
+Magi_Growth = 5
+Strength = 4
+Base_Skills = Array[ExtResource("1_6hmra")]([ExtResource("2_ktdn4"), ExtResource("2_ktdn4"), ExtResource("2_ktdn4"), ExtResource("2_ktdn4")])
+metadata/_custom_type_script = "uid://djm7gt0pdnt6m"

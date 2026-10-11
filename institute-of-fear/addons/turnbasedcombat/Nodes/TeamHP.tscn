@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bjdexxaic55vw"]
+
+[ext_resource type="Script" uid="uid://da4cis4jeuxgy" path="res://addons/turnbasedcombat/Scripts/UI/Teamresources.gd" id="1_vehls"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvr50"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="TeamHP" type="Panel" unique_id=137227510]
+self_modulate = Color(0.2627451, 0.2627451, 0.2627451, 1)
+custom_minimum_size = Vector2(500, 160)
+theme_override_styles/panel = SubResource("StyleBoxFlat_wvr50")
+script = ExtResource("1_vehls")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1343608579]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

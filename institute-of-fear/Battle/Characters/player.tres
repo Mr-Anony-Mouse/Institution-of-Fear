@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="JRPGSpecies" format=3 uid="uid://bi6w82vy285it"]
+
+[ext_resource type="Script" uid="uid://b5pok347oiq0u" path="res://addons/turnbasedcombat/Scripts/Character/BaseSkill.gd" id="1_gpfqf"]
+[ext_resource type="Resource" uid="uid://ctusw543gmfvn" path="res://Battle/Skills/slingshot.tres" id="2_swf0o"]
+[ext_resource type="Script" uid="uid://djm7gt0pdnt6m" path="res://addons/turnbasedcombat/Scripts/Character/Species.gd" id="3_c0l8g"]
+[ext_resource type="Resource" uid="uid://dyx4nkriv38hj" path="res://Battle/Skills/ruler.tres" id="3_vx282"]
+
+[resource]
+script = ExtResource("3_c0l8g")
+Name = "Player"
+Max_Base_HP = 100
+Weakness = 4
+Strength = 4
+Base_Skills = Array[ExtResource("1_gpfqf")]([ExtResource("2_swf0o"), ExtResource("3_vx282")])
+metadata/_custom_type_script = "uid://djm7gt0pdnt6m"

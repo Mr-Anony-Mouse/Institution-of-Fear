@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="JRPGBaseSkill" format=3 uid="uid://d3gk6sw7sl73o"]
+
+[ext_resource type="Script" uid="uid://b5pok347oiq0u" path="res://addons/turnbasedcombat/Scripts/Character/BaseSkill.gd" id="1_nk0c3"]
+
+[resource]
+script = ExtResource("1_nk0c3")
+AnimationName = "sc_1"
+BaseDamage = 5
+metadata/_custom_type_script = "uid://b5pok347oiq0u"

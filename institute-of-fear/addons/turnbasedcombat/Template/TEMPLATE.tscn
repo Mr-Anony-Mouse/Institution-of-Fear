@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://rkef2vnimcur"]
+
+[ext_resource type="PackedScene" uid="uid://cyqa6p6j7ne7w" path="res://addons/turnbasedcombat/JRPGCombat.tscn" id="1_uyh4h"]
+[ext_resource type="Script" uid="uid://2o1uvx3i6nlw" path="res://addons/turnbasedcombat/Template/template.gd" id="1_x614j"]
+[ext_resource type="Resource" uid="uid://cce24d8btdiyd" path="res://addons/turnbasedcombat/Template/CharTemplate/Man.tres" id="2_787y7"]
+
+[sub_resource type="Resource" id="Resource_787y7"]
+metadata/__load_path__ = "res://addons/turnbasedcombat/assets/ALLTogether.png"
+
+[node name="Template" type="Node2D" unique_id=1027878905]
+script = ExtResource("1_x614j")
+species = ExtResource("2_787y7")
+
+[node name="Combat" parent="." unique_id=320433929 instance=ExtResource("1_uyh4h")]
+CharactersPath = "res://addons/turnbasedcombat/Template/CharTemplate/"
+LeftPanel = "Team resources"
+Background = SubResource("Resource_787y7")
+
+[node name="TextureRect" parent="Combat/Background" parent_id_path=PackedInt32Array(320433929, 861365545) index="0" unique_id=1827207403]
+offset_right = 1152.0
+stretch_mode = 2
+
+[editable path="Combat"]

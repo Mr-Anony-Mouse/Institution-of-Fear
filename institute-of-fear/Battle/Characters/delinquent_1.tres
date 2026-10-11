@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="JRPGSpecies" format=3 uid="uid://cqva51ccrygo3"]
+
+[ext_resource type="Script" uid="uid://b5pok347oiq0u" path="res://addons/turnbasedcombat/Scripts/Character/BaseSkill.gd" id="1_habjs"]
+[ext_resource type="Resource" uid="uid://ydf5pf7rq4t4" path="res://Battle/Skills/del_1_1.tres" id="2_ni2qq"]
+[ext_resource type="Script" uid="uid://djm7gt0pdnt6m" path="res://addons/turnbasedcombat/Scripts/Character/Species.gd" id="3_j44dl"]
+[ext_resource type="Resource" uid="uid://lmicdoapkmv6" path="res://Battle/Skills/del_1_2.tres" id="3_ni2qq"]
+
+[resource]
+script = ExtResource("3_j44dl")
+Name = "Delinquent"
+Max_Base_HP = 200
+Weakness = 4
+Strength = 4
+Base_Skills = Array[ExtResource("1_habjs")]([ExtResource("2_ni2qq"), ExtResource("3_ni2qq")])
+metadata/_custom_type_script = "uid://djm7gt0pdnt6m"

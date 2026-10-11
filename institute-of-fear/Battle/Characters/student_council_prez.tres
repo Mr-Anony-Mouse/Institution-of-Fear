@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="JRPGSpecies" format=3 uid="uid://bt4qfkwiwa4jo"]
+
+[ext_resource type="Script" uid="uid://b5pok347oiq0u" path="res://addons/turnbasedcombat/Scripts/Character/BaseSkill.gd" id="1_8ghr4"]
+[ext_resource type="Resource" uid="uid://d3gk6sw7sl73o" path="res://Battle/Skills/sc_1.tres" id="2_85xbw"]
+[ext_resource type="Script" uid="uid://djm7gt0pdnt6m" path="res://addons/turnbasedcombat/Scripts/Character/Species.gd" id="2_k5mfc"]
+[ext_resource type="Resource" uid="uid://emtpbmlpbsku" path="res://Battle/Skills/sc_2.tres" id="3_kp0d6"]
+
+[resource]
+script = ExtResource("2_k5mfc")
+Name = "Student Council President"
+Max_Base_HP = 150
+Weakness = 5
+Strength = 5
+Base_Skills = Array[ExtResource("1_8ghr4")]([ExtResource("2_85xbw"), ExtResource("3_kp0d6")])
+metadata/_custom_type_script = "uid://djm7gt0pdnt6m"

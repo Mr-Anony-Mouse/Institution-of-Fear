@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="JRPGDefaultAggressionStrategy" format=3 uid="uid://d2cx5j2n2s0n8"]
+
+[ext_resource type="Script" uid="uid://ck5ief6pr3g2u" path="res://addons/turnbasedcombat/Scripts/EnemyAI/PremadeStrategies/DefaultAggresionStrategy.gd" id="1_kp5d8"]
+
+[resource]
+script = ExtResource("1_kp5d8")
+metadata/_custom_type_script = "uid://ck5ief6pr3g2u"

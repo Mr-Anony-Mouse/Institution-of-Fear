@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="JRPGSpecies" format=3 uid="uid://dutkmlpcy8yhf"]
+
+[ext_resource type="Script" uid="uid://b5pok347oiq0u" path="res://addons/turnbasedcombat/Scripts/Character/BaseSkill.gd" id="1_0aag1"]
+[ext_resource type="Script" uid="uid://djm7gt0pdnt6m" path="res://addons/turnbasedcombat/Scripts/Character/Species.gd" id="2_f3utd"]
+
+[resource]
+script = ExtResource("2_f3utd")
+Max_Base_HP = 100
+metadata/_custom_type_script = "uid://djm7gt0pdnt6m"

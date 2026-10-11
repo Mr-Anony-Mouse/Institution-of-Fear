@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bbggte801mqaf"]
+
+[ext_resource type="Script" uid="uid://cihovnoa3ry2b" path="res://addons/turnbasedcombat/Scripts/UI/CharStatBar.gd" id="1_hvrcb"]
+[ext_resource type="Texture2D" uid="uid://dh53snbojl8uv" path="res://addons/turnbasedcombat/assets/ProgressbarBG2.png" id="1_qnij3"]
+[ext_resource type="Texture2D" uid="uid://oe2lc13h57dj" path="res://addons/turnbasedcombat/assets/HPBar.png" id="3_np1hh"]
+
+[node name="CharStatBarForUi" type="HBoxContainer" unique_id=782688089]
+self_modulate = Color(18.892157, 18.892157, 18.892157, 0)
+custom_minimum_size = Vector2(500, 50)
+anchors_preset = -1
+anchor_right = 0.43400002
+anchor_bottom = 0.07700001
+offset_right = 0.031982422
+offset_bottom = 0.10399628
+alignment = 1
+script = ExtResource("1_hvrcb")
+
+[node name="Spacer2" type="Control" parent="." unique_id=368365074]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Label" type="Label" parent="." unique_id=232712618]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "CharName1"
+
+[node name="Spacer" type="Control" parent="." unique_id=19893342]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="TextureRect" parent="." unique_id=1313627125]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("1_qnij3")
+stretch_mode = 2
+
+[node name="HPBar" type="TextureProgressBar" parent="Panel" unique_id=131610000]
+custom_minimum_size = Vector2(198, 12)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 200.0
+offset_bottom = 28.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+value = 100.0
+nine_patch_stretch = true
+texture_progress = ExtResource("3_np1hh")
+
+[node name="Spacer3" type="Control" parent="." unique_id=991935947]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2

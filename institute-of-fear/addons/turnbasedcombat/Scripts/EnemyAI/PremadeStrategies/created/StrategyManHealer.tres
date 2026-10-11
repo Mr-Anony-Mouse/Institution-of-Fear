@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="JRPGHealerStrategy" format=3 uid="uid://deu6umqmfpsv6"]
+
+[ext_resource type="Script" uid="uid://b67lj2cae3e2y" path="res://addons/turnbasedcombat/Scripts/EnemyAI/PremadeStrategies/HealerStrategy.gd" id="1_pkash"]
+
+[resource]
+script = ExtResource("1_pkash")
+metadata/_custom_type_script = "uid://b67lj2cae3e2y"

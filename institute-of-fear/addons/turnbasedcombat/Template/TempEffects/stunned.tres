@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="JRPGBaseEffect" format=3 uid="uid://cdmbijro04pnx"]
+
+[ext_resource type="PackedScene" uid="uid://crepeiyubpibb" path="res://addons/turnbasedcombat/Template/TempEffects/StunVis.tscn" id="1_p0si7"]
+[ext_resource type="Script" uid="uid://bta2wfqui20m5" path="res://addons/turnbasedcombat/Scripts/Character/BaseEffect.gd" id="1_u2jen"]
+
+[resource]
+script = ExtResource("1_u2jen")
+Name = "stunned"
+EffectVis = ExtResource("1_p0si7")
+DurationType = 1
+EffectType = 0
+statTarget = 2
+CalculationType = 1
+Amount = 10
+metadata/_custom_type_script = "uid://bta2wfqui20m5"

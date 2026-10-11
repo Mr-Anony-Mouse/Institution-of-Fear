@@ -1,0 +1,187 @@
+[gd_scene format=3 uid="uid://dulryqadvnbn4"]
+
+[ext_resource type="Shader" uid="uid://dxbhn3mahwbve" path="res://addons/turnbasedcombat/assets/shaders/Outline.gdshader" id="1_a3g2v"]
+[ext_resource type="Texture2D" uid="uid://iktjapb60i0g" path="res://addons/turnbasedcombat/assets/Human Male Model/Human Male Model-Sheet.png" id="2_h8fgl"]
+[ext_resource type="Script" uid="uid://i5f8emg47xx7" path="res://addons/turnbasedcombat/Scripts/Character/BaseBattleChar.gd" id="3_fa118"]
+[ext_resource type="Script" uid="uid://dctubrhlbinh6" path="res://addons/turnbasedcombat/Scripts/Character/CharAnimatorScript.gd" id="4_h8fgl"]
+[ext_resource type="Script" uid="uid://c6a5ey5qijrko" path="res://addons/turnbasedcombat/Scripts/EnemyAI/AIController.gd" id="5_fa118"]
+[ext_resource type="Script" uid="uid://djyovaxm781wh" path="res://addons/turnbasedcombat/Scripts/EnemyAI/AIStrategy.gd" id="6_xeye1"]
+[ext_resource type="Resource" uid="uid://d2cx5j2n2s0n8" path="res://addons/turnbasedcombat/Scripts/EnemyAI/PremadeStrategies/created/StrategyMan.tres" id="7_6r8fy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jaieb"]
+resource_local_to_scene = true
+shader = ExtResource("1_a3g2v")
+shader_parameter/outline_enabled = false
+shader_parameter/outline_color = Color(0.93, 0.5425, 0, 1)
+shader_parameter/outline_size = 1.0
+
+[sub_resource type="Animation" id="Animation_a3g2v"]
+resource_name = "Idle"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_nbyrb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xeye1"]
+resource_name = "WalkLeft"
+length = 0.9
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11, 12, 13]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-3.5, 3.5), Vector2(-3.5, 3.5)]
+}
+
+[sub_resource type="Animation" id="Animation_6r8fy"]
+resource_name = "WalkRight"
+length = 0.9
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11, 12, 13]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(3.5, 3.5), Vector2(3.5, 3.5)]
+}
+
+[sub_resource type="Animation" id="Animation_h8fgl"]
+resource_name = "punch"
+length = 1.35
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999996, 0.34999996, 0.44999993, 0.54999995, 0.6499999, 0.74999994, 0.84999996, 1.05, 1.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [211, 215, 216, 217, 218, 219, 220, 221, 222, 225]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Animationplayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.35),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"skilldone"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cx8pm"]
+_data = {
+&"Idle": SubResource("Animation_a3g2v"),
+&"RESET": SubResource("Animation_nbyrb"),
+&"WalkLeft": SubResource("Animation_xeye1"),
+&"WalkRight": SubResource("Animation_6r8fy"),
+&"punch": SubResource("Animation_h8fgl")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5rscq"]
+size = Vector2(11, 25)
+
+[node name="BattlecharTemplate" type="Sprite2D" unique_id=462627241]
+material = SubResource("ShaderMaterial_jaieb")
+texture = ExtResource("2_h8fgl")
+hframes = 254
+script = ExtResource("3_fa118")
+
+[node name="Animationplayer" type="AnimationPlayer" parent="." unique_id=388845688]
+libraries/ = SubResource("AnimationLibrary_cx8pm")
+script = ExtResource("4_h8fgl")
+
+[node name="SelectArea" type="Area2D" parent="." unique_id=752270552]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SelectArea" unique_id=2106582835]
+position = Vector2(-1.5, 2.5)
+shape = SubResource("RectangleShape2D_5rscq")
+
+[node name="AIControl" type="Node" parent="." unique_id=1688354754]
+script = ExtResource("5_fa118")
+strategies = Array[ExtResource("6_xeye1")]([ExtResource("7_6r8fy")])
+
+[connection signal="input_event" from="SelectArea" to="." method="_on_select_area_input_event"]
+[connection signal="mouse_entered" from="SelectArea" to="." method="_on_select_area_mouse_entered"]
+[connection signal="mouse_exited" from="SelectArea" to="." method="_on_select_area_mouse_exited"]

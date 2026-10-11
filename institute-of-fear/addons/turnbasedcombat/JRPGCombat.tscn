@@ -1,0 +1,208 @@
+[gd_scene format=3 uid="uid://cyqa6p6j7ne7w"]
+
+[ext_resource type="Script" uid="uid://bg3b8s6eachcv" path="res://addons/turnbasedcombat/Scripts/Combat.gd" id="1_m8x75"]
+[ext_resource type="Script" uid="uid://b1bphcew07teq" path="res://addons/turnbasedcombat/Scripts/Abstracts/JRPGSignalBus.gd" id="2_lsmea"]
+[ext_resource type="Script" uid="uid://1a0ux03uad35" path="res://addons/turnbasedcombat/Scripts/Abstracts/HighlightManager.gd" id="3_5ekhk"]
+[ext_resource type="Texture2D" uid="uid://5av482ey5eyy" path="res://addons/turnbasedcombat/assets/TempBackground.png" id="4_k68cb"]
+[ext_resource type="Script" uid="uid://bd0t0qvyl3pa7" path="res://addons/turnbasedcombat/Scripts/MainUI.gd" id="5_tgbn1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvr50"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rk2tg"]
+bg_color = Color(0.18717638, 0.18717605, 0.18717617, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_72455"]
+bg_color = Color(0.07284262, 0.072842635, 0.072842576, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h6nfr"]
+bg_color = Color(0.12591085, 0.12591085, 0.12591082, 1)
+
+[node name="JRPGCombat" type="Node2D" unique_id=320433929 node_paths=PackedStringArray("PlayerTeamNode", "EnemyTeamNode")]
+script = ExtResource("1_m8x75")
+PlayerTeamNode = NodePath("Characters/Player")
+EnemyTeamNode = NodePath("Characters/Enemy")
+
+[node name="JRPGSignalBus" type="Node" parent="." unique_id=778933315]
+script = ExtResource("2_lsmea")
+
+[node name="HighlightManager" type="Node" parent="." unique_id=404079307]
+script = ExtResource("3_5ekhk")
+
+[node name="Background" type="Control" parent="." unique_id=861365545]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Background" unique_id=1827207403]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_k68cb")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="UI" type="Control" parent="." unique_id=1626737244 node_paths=PackedStringArray("ButtonsNode", "BackButton")]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 1
+script = ExtResource("5_tgbn1")
+ButtonsNode = NodePath("Main UI/HBoxContainer/Buttonbox/Buttons")
+BackButton = NodePath("Main UI/HBoxContainer/Buttonbox/BackButton")
+metadata/_edit_use_anchors_ = true
+
+[node name="Main UI" type="Panel" parent="UI" unique_id=1186781270]
+self_modulate = Color(0.37413925, 0.37413928, 0.37413922, 1)
+layout_mode = 0
+offset_left = -10.0
+offset_top = 477.0
+offset_right = 1162.0
+offset_bottom = 660.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wvr50")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Main UI" unique_id=1605247679]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 7.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Buttonbox" type="Panel" parent="UI/Main UI/HBoxContainer" unique_id=420442375]
+self_modulate = Color(0.26293245, 0.26293245, 0.26293245, 1)
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wvr50")
+
+[node name="Buttons" type="HBoxContainer" parent="UI/Main UI/HBoxContainer/Buttonbox" unique_id=701428834]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 10.0
+offset_right = -50.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Main UI/HBoxContainer/Buttonbox/Buttons" unique_id=962242970]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="Button1" type="Button" parent="UI/Main UI/HBoxContainer/Buttonbox/Buttons/VBoxContainer" unique_id=2090085556]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_rk2tg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_72455")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h6nfr")
+disabled = true
+text = "Skills"
+
+[node name="Button2" type="Button" parent="UI/Main UI/HBoxContainer/Buttonbox/Buttons/VBoxContainer" unique_id=422298497]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_rk2tg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_72455")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h6nfr")
+disabled = true
+text = "Skill2"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/Main UI/HBoxContainer/Buttonbox/Buttons" unique_id=1875103901]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="Button3" type="Button" parent="UI/Main UI/HBoxContainer/Buttonbox/Buttons/VBoxContainer2" unique_id=1477892691]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_rk2tg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_72455")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h6nfr")
+disabled = true
+text = "Skill3
+"
+
+[node name="Button4" type="Button" parent="UI/Main UI/HBoxContainer/Buttonbox/Buttons/VBoxContainer2" unique_id=1690541351]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_rk2tg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_72455")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h6nfr")
+disabled = true
+text = "Run"
+
+[node name="BackButton" type="Button" parent="UI/Main UI/HBoxContainer/Buttonbox" unique_id=2063017046]
+visible = false
+layout_mode = 0
+offset_left = 454.0
+offset_top = 10.0
+offset_right = 494.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 23
+text = "X"
+
+[node name="Characters" type="Node2D" parent="." unique_id=1104721024]
+
+[node name="Player" type="Node2D" parent="Characters" unique_id=1843793639]
+
+[node name="P1" type="Marker2D" parent="Characters/Player" unique_id=2111679803]
+position = Vector2(296, 348)
+gizmo_extents = 20.0
+
+[node name="P2" type="Marker2D" parent="Characters/Player" unique_id=768652608]
+position = Vector2(221, 239)
+gizmo_extents = 20.0
+
+[node name="P3" type="Marker2D" parent="Characters/Player" unique_id=382518166]
+position = Vector2(179, 426)
+gizmo_extents = 20.0
+
+[node name="Enemy" type="Node2D" parent="Characters" unique_id=1315091793]
+position = Vector2(1152, 0)
+
+[node name="E1" type="Marker2D" parent="Characters/Enemy" unique_id=1663858878]
+position = Vector2(-343, 342)
+gizmo_extents = 20.0
+
+[node name="E2" type="Marker2D" parent="Characters/Enemy" unique_id=788095415]
+position = Vector2(-248, 242)
+gizmo_extents = 20.0
+
+[node name="E3" type="Marker2D" parent="Characters/Enemy" unique_id=669835462]
+position = Vector2(-200, 426)
+gizmo_extents = 20.0
+
+[connection signal="pressed" from="UI/Main UI/HBoxContainer/Buttonbox/Buttons/VBoxContainer/Button1" to="UI" method="ClickSkillsButton"]
+[connection signal="pressed" from="UI/Main UI/HBoxContainer/Buttonbox/Buttons/VBoxContainer2/Button4" to="UI" method="ClickRun"]
+[connection signal="pressed" from="UI/Main UI/HBoxContainer/Buttonbox/BackButton" to="UI" method="Back"]

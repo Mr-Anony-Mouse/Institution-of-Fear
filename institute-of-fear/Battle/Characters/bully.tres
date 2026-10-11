@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="JRPGSpecies" format=3 uid="uid://0do6f00gcfvd"]
+
+[ext_resource type="Script" uid="uid://b5pok347oiq0u" path="res://addons/turnbasedcombat/Scripts/Character/BaseSkill.gd" id="1_77fj5"]
+[ext_resource type="Resource" uid="uid://djp4d81lqtp7r" path="res://Battle/Skills/bully_1.tres" id="2_c6euq"]
+[ext_resource type="Resource" uid="uid://b5ekkbmaib6tf" path="res://Battle/Skills/bully_2.tres" id="3_rdtdd"]
+[ext_resource type="Script" uid="uid://djm7gt0pdnt6m" path="res://addons/turnbasedcombat/Scripts/Character/Species.gd" id="4_aqtdl"]
+
+[resource]
+script = ExtResource("4_aqtdl")
+Name = "Bully"
+Max_Base_HP = 100
+Max_Base_Magi = 100
+Weakness = 4
+Strength = 4
+Base_Skills = Array[ExtResource("1_77fj5")]([ExtResource("2_c6euq"), ExtResource("3_rdtdd")])
+metadata/_custom_type_script = "uid://djm7gt0pdnt6m"

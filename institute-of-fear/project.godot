@@ -23,11 +23,16 @@ window/stretch/aspect="expand"
 
 project/assembly_name="Institute of Fear"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/turnbasedcombat/plugin.cfg")
+
 [file_customization]
 
 folder_colors={
 "res://Assets/": "red",
-"res://Characters/": "orange",
+"res://Battle/": "orange",
+"res://Battle/Characters/": "orange",
 "res://Resources/": "blue",
 "res://Scenes/": "yellow",
 "res://Scripts/": "green",

@@ -1,0 +1,344 @@
+[gd_scene format=3 uid="uid://btv3ap5cjdtxn"]
+
+[ext_resource type="Shader" uid="uid://dxbhn3mahwbve" path="res://addons/turnbasedcombat/assets/shaders/Outline.gdshader" id="1_8pc11"]
+[ext_resource type="Texture2D" uid="uid://tjfdtsndtdup" path="res://Assets/Player/start-nobg.png" id="2_7bue7"]
+[ext_resource type="Script" uid="uid://i5f8emg47xx7" path="res://addons/turnbasedcombat/Scripts/Character/BaseBattleChar.gd" id="3_yt77o"]
+[ext_resource type="Script" uid="uid://dctubrhlbinh6" path="res://addons/turnbasedcombat/Scripts/Character/CharAnimatorScript.gd" id="4_cp6fq"]
+[ext_resource type="Script" uid="uid://c6a5ey5qijrko" path="res://addons/turnbasedcombat/Scripts/EnemyAI/AIController.gd" id="5_evfse"]
+[ext_resource type="Script" uid="uid://djyovaxm781wh" path="res://addons/turnbasedcombat/Scripts/EnemyAI/AIStrategy.gd" id="6_wlnp4"]
+[ext_resource type="Resource" uid="uid://d2cx5j2n2s0n8" path="res://addons/turnbasedcombat/Scripts/EnemyAI/PremadeStrategies/created/StrategyMan.tres" id="7_6el5m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jaieb"]
+resource_local_to_scene = true
+shader = ExtResource("1_8pc11")
+shader_parameter/outline_enabled = false
+shader_parameter/outline_color = Color(0.93, 0.5425, 0, 1)
+shader_parameter/outline_size = 1.0
+
+[sub_resource type="Animation" id="Animation_a3g2v"]
+resource_name = "Idle"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_nbyrb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_xeye1"]
+resource_name = "WalkLeft"
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1, 1), Vector2(-1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="Animation" id="Animation_6r8fy"]
+resource_name = "WalkRight"
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_h8fgl"]
+resource_name = "punch"
+length = 1.5
+step = 0.05
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animationplayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.35),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"skilldone"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_oo6ws"]
+resource_name = "ruler"
+length = 1.5
+step = 0.05
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animationplayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.35),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"skilldone"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ddwah"]
+resource_name = "slingshot"
+length = 1.5
+step = 0.05
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animationplayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.35),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"skilldone"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cx8pm"]
+_data = {
+&"Idle": SubResource("Animation_a3g2v"),
+&"RESET": SubResource("Animation_nbyrb"),
+&"WalkLeft": SubResource("Animation_xeye1"),
+&"WalkRight": SubResource("Animation_6r8fy"),
+&"punch": SubResource("Animation_h8fgl"),
+&"ruler": SubResource("Animation_oo6ws"),
+&"slingshot": SubResource("Animation_ddwah")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5rscq"]
+size = Vector2(260, 280)
+
+[node name="BattlecharTemplate" type="Sprite2D" unique_id=462627241]
+material = SubResource("ShaderMaterial_jaieb")
+texture = ExtResource("2_7bue7")
+flip_h = true
+script = ExtResource("3_yt77o")
+
+[node name="Animationplayer" type="AnimationPlayer" parent="." unique_id=388845688]
+libraries/ = SubResource("AnimationLibrary_cx8pm")
+script = ExtResource("4_cp6fq")
+
+[node name="SelectArea" type="Area2D" parent="." unique_id=752270552]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SelectArea" unique_id=2106582835]
+shape = SubResource("RectangleShape2D_5rscq")
+
+[node name="AIControl" type="Node" parent="." unique_id=1688354754]
+script = ExtResource("5_evfse")
+strategies = Array[ExtResource("6_wlnp4")]([ExtResource("7_6el5m")])
+
+[connection signal="input_event" from="SelectArea" to="." method="_on_select_area_input_event"]
+[connection signal="mouse_entered" from="SelectArea" to="." method="_on_select_area_mouse_entered"]
+[connection signal="mouse_exited" from="SelectArea" to="." method="_on_select_area_mouse_exited"]
