@@ -34,6 +34,11 @@ folder_colors={
 "res://Shaders/": "purple"
 }
 
+[global_group]
+
+Player=""
+Door=""
+
 [input]
 
 move_up={
@@ -95,4 +100,4 @@ scroll_down={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
-environment/defaults/default_clear_color=Color(0.099985994, 0.099985994, 0.09998598, 1)
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
