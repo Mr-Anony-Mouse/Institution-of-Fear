@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://myf2wrcqo54q"]
 
+[ext_resource type="Script" uid="uid://btpov7vrqa6ul" path="res://Scripts/door.gd" id="1_p0e35"]
 [ext_resource type="Texture2D" uid="uid://735qnxtq5x3i" path="res://Assets/Tilemaps/Bonus/Bonus/Animated/Door1.png" id="1_w6aom"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p0e35"]
@@ -35,11 +36,29 @@ animations = [{
 }],
 "loop": 0,
 "name": &"default",
-"speed": 5.0
+"speed": 10.0
 }]
 
-[node name="Door" type="Node2D" unique_id=490993680]
+[sub_resource type="CircleShape2D" id="CircleShape2D_p0e35"]
+radius = 20.0
+
+[node name="Door" type="Node2D" unique_id=490993680 groups=["Door"]]
+script = ExtResource("1_p0e35")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=213361892]
 modulate = Color(0.47843137, 0.47843137, 0.47843137, 1)
 sprite_frames = SubResource("SpriteFrames_h7j2x")
+
+[node name="outposition" type="Marker2D" parent="." unique_id=147780956]
+
+[node name="Area2D" type="Area2D" parent="outposition" unique_id=2148055]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="outposition/Area2D" unique_id=1497178379]
+shape = SubResource("CircleShape2D_p0e35")
+
+[node name="inposition" type="Marker2D" parent="." unique_id=870926612]
+
+[node name="Area2D" type="Area2D" parent="inposition" unique_id=786937498]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="inposition/Area2D" unique_id=255590588]
+shape = SubResource("CircleShape2D_p0e35")
