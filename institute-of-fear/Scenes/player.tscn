@@ -562,4 +562,3 @@ occluder = SubResource("OccluderPolygon2D_6t5aa")
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1848921720]
 energy = 0.0
 texture = ExtResource("4_vgqql")
-texture_scale = 0.8
